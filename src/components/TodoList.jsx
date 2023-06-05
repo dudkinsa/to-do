@@ -1,8 +1,13 @@
 import React from 'react'
+import TodoForm from './TodoForm'
 
 function TodoList() {
+    const [todos, setTodos] = React.useState([])
   return (
-    <div>TodoList</div>
+    <div>
+        <h2>What's the Plan for Today?</h2>
+        <TodoForm />
+    </div>
   )
 }
 
