@@ -4,7 +4,7 @@ import {TiEdit} from 'react-icons/ti'
 
 
 
-function Todo({todos, completeTodo}) {
+function Todo({todos, completeTodo, removeTodo}) {
     const [edit, setEdit] = React.useState({
         id: null,
         value: '',
@@ -15,8 +15,14 @@ function Todo({todos, completeTodo}) {
             {todo.text}
         </div>
         <div className='icons'>
-            <RiCloseCircleLine />
-            <TiEdit />
+            <RiCloseCircleLine
+            className='delete-icon'
+            onClick={() => removeTodo(todo.id)}
+            />
+            <TiEdit 
+             className='edit-icon'
+             onClick={() => setEdit({id: todo, value: todo.text})}
+             />
             
         </div>
     </div>
