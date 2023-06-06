@@ -1,18 +1,22 @@
 import React from 'react';
 import uuid from 'react-uuid';
 
-const id = () =>{uuid()}
+const id = () =>{return uuid()}
 
-function TodoForm({onSubmit}) {
+function TodoForm(props) {
   const [input, setInput] = React.useState('');
 
-  const handleSubmit = (event) =>{
-    event.preventDefault();
-    // onSubmit({
-    //     id: id(),
-    //     texr: input
-    // })
+  const handleChange = event => {
+    setInput(event.target.value);
+  }
 
+  const handleSubmit = event =>{
+    event.preventDefault();
+    props.onSubmit({
+        // id: Math.floor(Math.random()*10000),
+        id: id(),
+        text: input
+    });
     setInput('');
   }
   return <div>
@@ -23,10 +27,10 @@ function TodoForm({onSubmit}) {
         placeholder='Add a todo' 
         value={input}
         name ='text'
-        onChange={(event) => setInput(event.target.value)}
+        onChange={handleChange}
         />
     </form>
-    <button className='todo-button'>Ddd todo</button>
+    <button  onClick={handleSubmit} className='todo-button'>Ddd todo</button>
   </div>;
 }
 
