@@ -6,6 +6,12 @@ const id = () =>{return uuid()}
 function TodoForm(props) {
   const [input, setInput] = React.useState('');
 
+  const inputRef = React.useRef(null);
+
+  React.useEffect(() =>{
+    inputRef.current.focus()
+  })
+
   const handleChange = event => {
     setInput(event.target.value);
   }
@@ -28,6 +34,7 @@ function TodoForm(props) {
         value={input}
         name ='text'
         onChange={handleChange}
+        ref ={inputRef}
         />
     </form>
     <button  onClick={handleSubmit} className='todo-button'>Add todo</button>
