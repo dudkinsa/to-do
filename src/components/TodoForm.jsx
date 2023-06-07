@@ -30,7 +30,7 @@ function TodoForm(props) {
         onChange={handleChange}
         />
     </form>
-    <button  onClick={handleSubmit} className='todo-button'>Ddd todo</button>
+    <button  onClick={handleSubmit} className='todo-button'>Add todo</button>
   </div>;
 }
 
