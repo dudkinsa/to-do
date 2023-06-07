@@ -5,7 +5,7 @@ const id = () =>{return uuid()}
 
 function TodoForm(props) {
   const [input, setInput] = React.useState('');
-
+//хуки useRef и useEffect исползуется для взимодействие с кнопкой Enter
   const inputRef = React.useRef(null);
 
   React.useEffect(() =>{
